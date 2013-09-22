@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Secretaria">
+		<message>
+			<![CDATA[Ingreso al sistema como Secretaria]]>
+		</message>
+	</layout>
+	<state>
+		<name>Secretaria</name>
+		<description>Ingreso al sistema como Secretaria</description>
+	</state>
+</metadata>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+		<fieldset name="atencion">
+		<field name="id" 
+					type="text" 
+					default="0" 
+					label="JGLOBAL_FIELD_ID_LABEL" 
+					required="true"
+			        readonly="true" 
+			        class="readonly" />
+		<field
+		            name="pacienteid"
+		            type="sql"
+		            multiple="false"
+		            size="1"
+		            label="JFIELD_PACIENTE_LABEL"
+		            description="JFIELD_PACIENTE_DESC"
+		            query="select id, nombre from #__tm_pacientes ORDER BY nombre"
+		            key_field="id"
+		            value_field="nombre"
+		            default="0"
+					required="true"
+			    	readonly="true" 
+		            >
+		                <option value="">JOPTION_SELECT_ID</option>
+		        </field>
+	  
+		
+		<field
+		            name="diagnosticoid"
+		            type="sql"
+		            multiple="false"
+		            size="1"
+		            label="JFIELD_DIAGNOSTICO_LABEL"
+		            description="JFIELD_DIAGNOSTICO_DESC"
+		            query="select id, nombre from #__tm_diagnosticos ORDER BY nombre"
+		            key_field="id"
+		            value_field="nombre"
+		            default="0"
+					required="true"
+		            >
+		                <option value="">JOPTION_SELECT_ID</option>
+		        </field>
+   
+		  <field name="evolucion"
+						type="textarea"
+						cols="60"
+						rows="12"
+						id="evolucion"
+						description="COM_TECNOMED_EVOLUCION_DESC"
+						label="COM_TECNOMED_EVOLUCION_LABEL"
+						filter="htmlsafe"
+						required="true"
+					/>
+					<field 
+            name="estado" 
+            type="list"
+			label="JSTATUS" 
+			description="COM_TECNOMED_ESTADO_DESC"
+			class="inputbox" 
+			size="1" 
+			default="2" >
+			<option value="2">JATENDIDA</option>
+			<option value="3">JANULADA</option>
+		</field>
+		</fieldset>
+		<fieldset name="signos">
+			<field
+	                name="peso"
+        	        type="text"
+	                label="JFIELD_PESO_LABEL"
+        	        description="JFIELD_PESO_DESC"
+                	class="inputbox"
+                	size="5"/>		
+			<field
+	                name="estatura"
+        	        type="text"
+	                label="JFIELD_ESTATURA_LABEL"
+        	        description="JFIELD_ESTATURA_DESC"
+                	class="inputbox"
+                	size="5"/>	
+             <field
+	                name="precion_arterial"
+        	        type="text"
+	                label="JFIELD_PRECION_LABEL"
+        	        description="JFIELD_PRECION_DESC"
+                	class="inputbox"
+                	size="5"/>		
+             <field
+	                name="frecuencia_cardiaca"
+        	        type="text"
+	                label="JFIELD_FRECUENCIA_LABEL"
+        	        description="JFIELD_FRECUENCIA_DESC"
+                	class="inputbox"
+                	size="5"/>	
+             <field
+	                name="temperatura"
+        	        type="text"
+	                label="JFIELD_TEMPERATURA_LABEL"
+        	        description="JFIELD_TEMPERATURA_DESC"
+                	class="inputbox"
+                	size="5"/>	
+            <field
+	                name="indice_masa_corporal"
+        	        type="text"
+	                label="JFIELD_INDICE_LABEL"
+        	        description="JFIELD_INDICE_DESC"
+                	class="inputbox"
+                	size="5"/>	
+            <field
+	                name="pulso"
+        	        type="text"
+	                label="JFIELD_PULSO_LABEL"
+        	        description="JFIELD_PULSO_DESC"
+                	class="inputbox"
+                	size="5"/>	    	
+		</fieldset>	
+		<fieldset name="licencias">
+		<field
+                	name="licencia"
+ 					type="textarea"
+					cols="60"
+					rows="12"
+					label="COM_TECNOMED_LICENCIA"
+                	description="COM_TECNOMED_LICENCIA_DESC"
+                	class="inputbox"
+                	size="50"
+                	required="false"/>
+         <field 		name="fecha_ini_lic" 
+					type="calendar"
+					label="COM_TECNOMED_FIELD_FECHA_INI_LABEL" 
+					description="COM_TECNOMED_FIELD_FECHA_INI_DESC"
+					class="inputbox" 
+					size="20" 
+					format="%Y-%m-%d" 
+					filter="user_utc" />
+		
+		<field 		name="fecha_fin_lic" 
+					type="calendar"
+					label="COM_TECNOMED_FIELD_FECHA_FIN_LABEL" 
+					description="COM_TECNOMED_FIELD_FECHA_FIN_DESC"
+					class="inputbox" 
+					size="20" 
+					format="%Y-%m-%d" 
+					filter="user_utc" />
+		
+
+		</fieldset>	
+		<fieldset name="recetas">
+
+      	<field
+		            name="farmaco1"
+		            type="sql"
+		            multiple="false"
+		            size="1"
+		            label="JFIELD_FARMACO_LABEL"
+		            description="JFIELD_FARMACO_DESC"
+		            query="select a.id id,  concat(a.nombre,' ',a.dosis,' ',a.contenido,' ',v.nombre,' ',s.nombre) nombre from #__tm_farmacos a LEFT JOIN #__tm_presentaciones AS v ON v.id=a.presentacionid LEFT JOIN #__tm_drogas AS s ON s.id=a.drogaid"
+		            key_field="id"
+		            value_field="nombre"
+		            default="0"
+					required="false">
+		                <option value="">JOPTION_SELECT_ID</option>
+		</field>
+		<field
+                	name="posologia1"
+ 					type="text"
+                	label="COM_TECNOMED_POSOLOGIA"
+                	description="COM_TECNOMED_POSOLOGIA_DESC"
+                	class="inputbox"
+                	size="50"
+                	required="false"/>
+		<field
+		            name="farmaco2"
+		            type="sql"
+		            multiple="false"
+		            size="1"
+		            label="JFIELD_FARMACO_LABEL"
+		            description="JFIELD_FARMACO_DESC"
+		            query="select a.id id,  concat(a.nombre,' ',a.dosis,' ',a.contenido,' ',v.nombre,' ',s.nombre) nombre from #__tm_farmacos a LEFT JOIN #__tm_presentaciones AS v ON v.id=a.presentacionid LEFT JOIN #__tm_drogas AS s ON s.id=a.drogaid"
+		            key_field="id"
+		            value_field="nombre"
+		            default="0"
+					required="false">
+		                <option value="">JOPTION_SELECT_ID</option>
+		</field>
+		<field
+                	name="posologia2"
+ 					type="text"
+                	label="COM_TECNOMED_POSOLOGIA"
+                	description="COM_TECNOMED_POSOLOGIA_DESC"
+                	class="inputbox"
+                	size="50"
+                	required="false"/>   
+		<field
+		            name="farmaco3"
+		            type="sql"
+		            multiple="false"
+		            size="1"
+		            label="JFIELD_FARMACO_LABEL"
+		            description="JFIELD_FARMACO_DESC"
+		            query="select a.id id,  concat(a.nombre,' ',a.dosis,' ',a.contenido,' ',v.nombre,' ',s.nombre) nombre from #__tm_farmacos a LEFT JOIN #__tm_presentaciones AS v ON v.id=a.presentacionid LEFT JOIN #__tm_drogas AS s ON s.id=a.drogaid"
+		            key_field="id"
+		            value_field="nombre"
+		            default="0"
+					required="false">
+		                <option value="">JOPTION_SELECT_ID</option>
+		</field>
+		<field
+                	name="posologia3"
+ 					type="text"
+                	label="COM_TECNOMED_POSOLOGIA"
+                	description="COM_TECNOMED_POSOLOGIA_DESC"
+                	class="inputbox"
+                	size="50"
+                	required="false"/>  
+ 		<field
+		            name="farmaco4"
+		            type="sql"
+		            multiple="false"
+		            size="1"
+		            label="JFIELD_FARMACO_LABEL"
+		            description="JFIELD_FARMACO_DESC"
+		            query="select a.id id,  concat(a.nombre,' ',a.dosis,' ',a.contenido,' ',v.nombre,' ',s.nombre) nombre from #__tm_farmacos a LEFT JOIN #__tm_presentaciones AS v ON v.id=a.presentacionid LEFT JOIN #__tm_drogas AS s ON s.id=a.drogaid"
+		            key_field="id"
+		            value_field="nombre"
+		            default="0"
+					required="false">
+		                <option value="">JOPTION_SELECT_ID</option>
+		</field>
+		<field
+                	name="posologia4"
+ 					type="text"
+                	label="COM_TECNOMED_POSOLOGIA"
+                	description="COM_TECNOMED_POSOLOGIA_DESC"
+                	class="inputbox"
+                	size="50"
+                	required="false"/>                 	              	             	
+
+		<field
+		            name="farmaco6"
+		            type="sql"
+		            multiple="false"
+		            size="1"
+		            label="JFIELD_FARMACO_LABEL"
+		            description="JFIELD_FARMACO_DESC"
+		            query="select a.id id,  concat(a.nombre,' ',a.dosis,' ',a.contenido,' ',v.nombre,' ',s.nombre) nombre from #__tm_farmacos a LEFT JOIN #__tm_presentaciones AS v ON v.id=a.presentacionid LEFT JOIN #__tm_drogas AS s ON s.id=a.drogaid"
+		            key_field="id"
+		            value_field="nombre"
+		            default="0"
+					required="false">
+		                <option value="">JOPTION_SELECT_ID</option>
+		</field>
+		<field
+                	name="posologia6"
+ 					type="text"
+                	label="COM_TECNOMED_POSOLOGIA"
+                	description="COM_TECNOMED_POSOLOGIA_DESC"
+                	class="inputbox"
+                	size="50"
+                	required="false"/>  	
+		</fieldset>	                		
+</form>

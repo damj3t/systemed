@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+        <fieldset name="details">
+		<field 
+					name="id" 
+					type="text" 
+					default="0" 
+					label="JGLOBAL_FIELD_ID_LABEL" 
+					required="true"
+			        readonly="true" 
+			        class="readonly" />
+		<field 
+					name="atencion_id" 
+					type="text" 
+					default="0" 
+					label="JGLOBAL_FIELD_ATENCION_ID_LABEL" 
+					required="true"
+			        readonly="true" 
+			        class="readonly" />
+        <field
+		            name="paciente_id"
+		            type="sql"
+		            multiple="false"
+		            size="1"
+		            label="JFIELD_PACIENTE_LABEL"
+		            description="JFIELD_PACIENTE_DESC"
+		            query="select id, nombre from #__tm_pacientes ORDER BY nombre"
+		            key_field="id"
+		            value_field="nombre"
+		            default="0"
+					required="true">
+		                <option value="">JOPTION_SELECT_ID</option>
+		        </field>
+      	<field
+		            name="farmaco_id"
+		            type="sql"
+		            multiple="false"
+		            size="1"
+		            label="JFIELD_FARMACO_LABEL"
+		            description="JFIELD_FARMACO_DESC"
+		            query="select id, nombre from #__tm_farmacos ORDER BY nombre"
+		            key_field="id"
+		            value_field="nombre"
+		            default="0"
+					required="true">
+		                <option value="">JOPTION_SELECT_ID</option>
+		        </field>
+		<field
+                	name="posologia"
+ 					type="text"
+                	label="COM_TECNOMED_POSOLOGIA"
+                	description="COM_TECNOMED_POSOLOGIA_DESC"
+                	class="inputbox"
+                	size="50"
+                	required="true"/>
+
+		</fieldset>
+</form>

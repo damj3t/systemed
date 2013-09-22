@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form addrulepath="/components/com_tecnomed/models/rules">
+		<fieldset name="details">
+				<field 
+				name="id" 
+				type="text" 
+				default="0" 
+				label="JGLOBAL_FIELD_ID_LABEL" 
+				required="true"
+				readonly="true" 
+				class="readonly" />
+
+				<field
+				name="paciente_id"
+				type="sql"
+				multiple="false"
+				size="1"
+				label="JFIELD_PACIENTE_LABEL"
+				description="JFIELD_PACIENTE_DESC"
+				query="select id, nombre from #__tm_pacientes ORDER BY nombre"
+				key_field="id"
+				value_field="nombre"
+				default="0"
+				required="false"
+				>
+					<option value="">JOPTION_SELECT_ID</option>
+				</field>
+				
+				<field
+				name="profesional_id"
+				type="sql"
+				multiple="false"
+				size="1"
+				label="JFIELD_PROFESIONAL_LABEL"
+				description="JFIELD_PROFESIONAL_DESC"
+				query="select id, nombre from #__tm_profesionales ORDER BY nombre"
+				key_field="id"
+				value_field="nombre"
+				default="0"
+				readonly="false" 
+				required="true"
+				>
+					<option value="">JOPTION_SELECT_ID</option>
+				</field>
+			</fieldset>
+			<fieldset name="caja">			
+				<field
+				name="forma_pago_id"
+				type="sql"
+				multiple="false"
+				size="1"
+				label="JFIELD_PAGO_LABEL"
+				description="JFIELD_PAGO_DESC"
+				query="select id, nombre from #__tm_forma_pago"
+				key_field="id"
+				value_field="nombre"
+				default="0"
+				readonly="false" 
+				required="true"
+				>
+					<option value="">JOPTION_SELECT_ID</option>
+				</field>
+				<field
+				name="numero_doc_pago"
+				type="text"
+				label="COM_TECNOMED_NUMERO_DOC_PAGO"
+				description="COM_TECNOMED_NUMERO_DOC_PAGO_DESC"
+				class="inputbox"
+				size="20"
+				readonly="false" 
+				required="true"/>
+				<field
+				name="monto"
+				type="text"
+				label="COM_TECNOMED_MONTO"
+				description="COM_TECNOMED_MONTO_DESC"
+				class="inputbox"
+				size="20"
+				readonly="false" 
+				required="true"/>
+				
+				 <field name="observacion"
+				type="textarea"
+				cols="60"
+				rows="12"
+				id="evolucion"
+				description="COM_TECNOMED_OBSERVACION_DESC"
+				label="COM_TECNOMED_OBSERVACIN_LABEL"
+				filter="htmlsafe"
+				required="false"
+				/>
+				<field 
+	            name="state" 
+	            type="list"
+				label="JSTATUS" 
+				description="COM_TECNOMED_FIELD_STATE_DESC"
+				class="inputbox" 
+				size="1" 
+				default="1" >
+				<option value="1">JPENDIENTE</option>
+				<option value="2">JPAGADA</option>
+				<option value="3">JANULADA</option>
+				</field>
+				
+		</fieldset>
+</form>

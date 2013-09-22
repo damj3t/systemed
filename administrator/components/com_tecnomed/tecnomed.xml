@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install method="upgrade" type="component" version="1.6.0">
+        <name>Tecnomed</name>
+        <creationDate>2012-02-19</creationDate>
+        <author>Alex olave</author>
+        <authorEmail>federica@informatizzati.org</authorEmail>
+        <authorUrl>http://www.alexandriabooklibrary.org</authorUrl>
+        <copyright>Copyright Ugolotti Federica</copyright>
+        <license>License GPL 2.0</license>
+        <version>2.0</version>
+        <description>COM_TECNOMED_DESC</description>
+        <files folder="site">
+                <filename>controller.php</filename>
+                <filename>tecnomed.php</filename>
+                <filename>index.html</filename>
+                <folder>helpers</folder>
+                <folder>controllers</folder>
+                <folder>models</folder>
+                <folder>views</folder>
+                <folder>assets</folder>
+		<folder>language</folder>
+        </files>
+        <languages folder="site">
+                <language tag="en-GB">language/en-GB/en-GB.com_tecnomed.ini</language>
+        </languages>
+        <params>
+                <param name="img_path" default="tecnomed" />
+                <param name="linkto" default="1" />
+                <param name="emptycat" default="1" />
+                <param name="catimage" default="folder_yellow.png" />
+                <param name="categorypagination" default="20" />
+                <param name="bookpagination" default="10" />
+                <param name="view_rate" default="1" />
+                <param name="display_order" default="title" />
+                <param name="view_date" default="1" />
+                <param name="show_icons" default="1" />
+                <param name="show_pdf_icon" default="1" />
+                <param name="show_print_icon" default="1" />
+        </params>
+        <install>
+                <sql>
+                        <file charset="utf8" driver="mysql">install.sql</file>
+                </sql>
+        </install>
+        <uninstall>
+                <sql>
+                        <file charset="utf8" driver="mysql">uninstall.sql</file>
+                </sql>
+        </uninstall>
+        <administration>
+                <menu img="components/com_tecnomed/images/abook-main.png">COM_TECNOMED_MENU</menu>
+                <submenu>
+						<menu link="option=com_tecnomed&amp;view=cpanel" view="cpanel" img="components/com_tecnomed/assets/images/abook-main.png" alt="Tecnomed/Control panel">COM_TECNOMED_CONTROL_PANEL</menu>
+                </submenu>
+                <files folder="admin">
+                <filename>tecnomed.php</filename>
+						<filename>access.xml</filename>
+                        <filename>index.html</filename>
+                        <filename>install.sql</filename>
+                        <filename>uninstall.sql</filename>
+                        <filename>config.xml</filename>
+                        <filename>controller.php</filename>
+                        <folder>controllers</folder>
+                        <folder>assets</folder>
+                        <folder>models</folder>
+                        <folder>tables</folder>
+                        <folder>views</folder>
+			<folder>helpers</folder>
+			<folder>uploads</folder>
+			<folder>language</folder>
+                </files>
+                <languages folder="admin">
+                        <language tag="en-GB">language/en-GB/en-GB.com_tecnomed.ini</language>
+						<language tag="en-GB">language/en-GB/en-GB.com_tecnomed.sys.ini</language>
+                </languages>
+        </administration>
+</install>
